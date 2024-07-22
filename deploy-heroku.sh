@@ -15,6 +15,6 @@ heroku git:remote -a $APP_NAME
 # Deploy the app
 git add .
 git commit -m "Deploy to Heroku"
-git push heroku master
+git push heroku main
 
 
