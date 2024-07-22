@@ -1,6 +1,6 @@
 #!/bin/bash
 
-APP_NAME="easy-travel-backend"
+APP_NAME="wanderwings"
 
 # Log in to Heroku
 heroku login
