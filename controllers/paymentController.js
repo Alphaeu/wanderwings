@@ -115,7 +115,5 @@ exports.processMpesaPayment = async (req, res) => {
   }
 };
 
-
 module.exports = { processStripePayment, processPaypalPayment, processMpesaPayment };
-
 
