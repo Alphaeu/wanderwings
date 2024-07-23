@@ -19,7 +19,7 @@ app.use(express.json());
 app.use('/api/auth', authRoutes);
 app.use('/api/flights', flightRoutes);
 app.use('/api/users', userRoutes);
-app,use('/api/payments', paymentRoutes);
+app.use('/api/payments', paymentRoutes); // Corrected line
 
 // Error Handling Middleware
 app.use(errorHandler);
@@ -29,3 +29,4 @@ const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
   console.log(`Server started on port ${PORT}`);
 });
+
