@@ -8,6 +8,7 @@ const flightRoutes = require('./routes/flightRoutes');
 const userRoutes = require('./routes/userRoutes');
 const paymentRoutes = require('./routes/paymentRoutes');
 const allowedOrigins = require('./config/allowedOrigins');
+const { corsOptions } = require('./config/corsOptions');
 
 dotenv.config();
 
