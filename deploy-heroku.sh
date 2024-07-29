@@ -10,10 +10,11 @@ APP_NAME="wanderwings-$(date +%s)"
 heroku create $APP_NAME
 
 # Set environment variables if needed
-# heroku config:set REACT_APP_API_URL=https://api.wanderwings.com
+heroku config:set REACT_APP_API_URL=https://api.wanderwings.com
 
 # Ensure node_modules is not in source control
 echo "node_modules" >> .gitignore
+echo ".env" >> .gitignore
 git rm -r --cached node_modules
 git add .gitignore
 git commit -m "Remove node_modules and update .gitignore"
