@@ -20,20 +20,7 @@ dotenv.config();
 
 const app = express();
 
-// CORS options
-const corsOptions = {
-  origin: (origin, callback) => {
-    if (allowedOrigins.includes(origin) || !origin) {
-      callback(null, true);
-    } else {
-      callback(new Error('Not allowed by CORS'));
-    }
-  },
-  methods: ['GET', 'POST', 'PUT', 'DELETE'],
-  credentials: true
-};
-
-// Apply CORS middleware
+// Apply CORS middleware using imported corsOptions
 app.use(cors(corsOptions));
 
 // Connect Database
