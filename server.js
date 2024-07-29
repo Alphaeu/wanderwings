@@ -7,7 +7,13 @@ const authRoutes = require('./routes/authRoutes');
 const flightRoutes = require('./routes/flightRoutes');
 const userRoutes = require('./routes/userRoutes');
 const paymentRoutes = require('./routes/paymentRoutes');
-const allowedOrigins = require('./config/allowedOrigins');
+const feedbackRoutes = require('./routes/feedbackRoutes'); // New
+const bookingRoutes = require('./routes/bookingRoutes'); // New
+const flightStatusRoutes = require('./routes/flightStatusRoutes'); // New
+const additionalServicesRoutes = require('./routes/additionalServicesRoutes'); // New
+const loyaltyRoutes = require('./routes/loyaltyRoutes'); // New
+const customerSupportRoutes = require('./routes/customerSupportRoutes'); // New
+const trendingDestinationsRoutes = require('./routes/trendingDestinationsRoutes'); // New
 const { corsOptions } = require('./config/corsOptions');
 
 dotenv.config();
@@ -35,10 +41,19 @@ connectDB();
 
 // Middleware
 app.use(express.json());
+
+// Define Routes
 app.use('/api/auth', authRoutes);
 app.use('/api/flights', flightRoutes);
 app.use('/api/users', userRoutes);
 app.use('/api/payments', paymentRoutes);
+app.use('/api/feedback', feedbackRoutes); // New
+app.use('/api/booking', bookingRoutes); // New
+app.use('/api/flight-status', flightStatusRoutes); // New
+app.use('/api/additional-services', additionalServicesRoutes); // New
+app.use('/api/loyalty', loyaltyRoutes); // New
+app.use('/api/customer-support', customerSupportRoutes); // New
+app.use('/api/trending-destinations', trendingDestinationsRoutes); // New
 
 // Error Handling Middleware
 app.use(errorHandler);

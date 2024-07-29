@@ -21,17 +21,34 @@ import LiveChatSupport from './components/CustomerSupport/LiveChatSupport';
 import HelpCenter from './components/CustomerSupport/HelpCenter';
 import UserReviews from './components/Feedback/UserReviews';
 import FeedbackSystem from './components/Feedback/FeedbackSystem';
+import UserDashboard from './components/AccountManagement/UserDashboard'; // New
+import SearchBar from './components/SearchBar'; // New
+import DynamicBanner from './components/DynamicBanner'; // New
+import TrendingDestinations from './components/TrendingDestinations'; // New
+import Login from './components/Authentication/Login'; // New
+import Register from './components/Authentication/Register'; // New
+import PasswordRecovery from './components/Authentication/PasswordRecovery'; // New
+import FlightChart from './components/FlightChart'; // New, ensure path is correct
 
 function App() {
+  // Sample data for FlightChart
+  const flightData = {
+    labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+    values: [12, 19, 3, 5, 2, 3],
+  };
+
   return (
     <Router>
       <div className="App">
         <Header />
+        <SearchBar /> {/* New */}
+        <DynamicBanner /> {/* New */}
         <main className="container">
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/flights" element={<AdvancedSearch />} />
             <Route path="/account" element={<ProfileCreation />} />
+            <Route path="/account/dashboard" element={<UserDashboard />} /> {/* New */}
             <Route path="/account/history" element={<BookingHistory />} />
             <Route path="/account/notifications" element={<Notifications />} />
             <Route path="/flights/flexible" element={<FlexibleDateSearch />} />
@@ -48,7 +65,12 @@ function App() {
             <Route path="/support/help-center" element={<HelpCenter />} />
             <Route path="/feedback/reviews" element={<UserReviews />} />
             <Route path="/feedback/submit" element={<FeedbackSystem />} />
+            <Route path="/login" element={<Login />} /> {/* New */}
+            <Route path="/register" element={<Register />} /> {/* New */}
+            <Route path="/password-recovery" element={<PasswordRecovery />} /> {/* New */}
           </Routes>
+          <FlightChart data={flightData} /> {/* New */}
+          <TrendingDestinations /> {/* New */}
         </main>
         <Footer />
       </div>
@@ -57,4 +79,3 @@ function App() {
 }
 
 export default App;
-
