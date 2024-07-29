@@ -21,7 +21,9 @@ dotenv.config();
 const app = express();
 
 // Apply CORS middleware using imported corsOptions
-app.use(cors(corsOptions));
+  app.use(cors({
+  origin: 'https://easy-travel-frontend.netlify.app' 
+}));
 
 // Connect Database
 connectDB();

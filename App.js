@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Header from './components/Header';
 import Footer from './components/Footer';
@@ -28,9 +28,26 @@ import TrendingDestinations from './components/TrendingDestinations'; // New
 import Login from './components/Authentication/Login'; // New
 import Register from './components/Authentication/Register'; // New
 import PasswordRecovery from './components/Authentication/PasswordRecovery'; // New
-import FlightChart from './components/FlightChart'; // New, ensure path is correct
+import FlightChart from './components/FlightChart'; // New
+import { getSomeData } from './services/api'; // Import API function
 
 function App() {
+  const [apiData, setApiData] = useState(null);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const data = await getSomeData(); // Fetch data from API
+        setApiData(data);
+      } catch (err) {
+        setError(err);
+      }
+    };
+
+    fetchData();
+  }, []);
+
   // Sample data for FlightChart
   const flightData = {
     labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
@@ -44,31 +61,36 @@ function App() {
         <SearchBar /> {/* New */}
         <DynamicBanner /> {/* New */}
         <main className="container">
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/flights" element={<AdvancedSearch />} />
-            <Route path="/account" element={<ProfileCreation />} />
-            <Route path="/account/dashboard" element={<UserDashboard />} /> {/* New */}
-            <Route path="/account/history" element={<BookingHistory />} />
-            <Route path="/account/notifications" element={<Notifications />} />
-            <Route path="/flights/flexible" element={<FlexibleDateSearch />} />
-            <Route path="/flights/availability" element={<RealTimeAvailability />} />
-            <Route path="/flights/seat-selection" element={<SeatSelection />} />
-            <Route path="/flight-status" element={<RealTimeFlightStatus />} />
-            <Route path="/flight-status/notifications" element={<PushNotifications />} />
-            <Route path="/loyalty/frequent-flyer" element={<FrequentFlyerProgram />} />
-            <Route path="/loyalty/promotions" element={<PromotionsOffers />} />
-            <Route path="/services/baggage-tracking" element={<BaggageTracking />} />
-            <Route path="/services/travel-insurance" element={<TravelInsurance />} />
-            <Route path="/services/airport-transfers" element={<AirportTransfers />} />
-            <Route path="/support/live-chat" element={<LiveChatSupport />} />
-            <Route path="/support/help-center" element={<HelpCenter />} />
-            <Route path="/feedback/reviews" element={<UserReviews />} />
-            <Route path="/feedback/submit" element={<FeedbackSystem />} />
-            <Route path="/login" element={<Login />} /> {/* New */}
-            <Route path="/register" element={<Register />} /> {/* New */}
-            <Route path="/password-recovery" element={<PasswordRecovery />} /> {/* New */}
-          </Routes>
+          {error && <p>Error: {error.message}</p>}
+          {apiData ? (
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/flights" element={<AdvancedSearch />} />
+              <Route path="/account" element={<ProfileCreation />} />
+              <Route path="/account/dashboard" element={<UserDashboard />} /> {/* New */}
+              <Route path="/account/history" element={<BookingHistory />} />
+              <Route path="/account/notifications" element={<Notifications />} />
+              <Route path="/flights/flexible" element={<FlexibleDateSearch />} />
+              <Route path="/flights/availability" element={<RealTimeAvailability />} />
+              <Route path="/flights/seat-selection" element={<SeatSelection />} />
+              <Route path="/flight-status" element={<RealTimeFlightStatus />} />
+              <Route path="/flight-status/notifications" element={<PushNotifications />} />
+              <Route path="/loyalty/frequent-flyer" element={<FrequentFlyerProgram />} />
+              <Route path="/loyalty/promotions" element={<PromotionsOffers />} />
+              <Route path="/services/baggage-tracking" element={<BaggageTracking />} />
+              <Route path="/services/travel-insurance" element={<TravelInsurance />} />
+              <Route path="/services/airport-transfers" element={<AirportTransfers />} />
+              <Route path="/support/live-chat" element={<LiveChatSupport />} />
+              <Route path="/support/help-center" element={<HelpCenter />} />
+              <Route path="/feedback/reviews" element={<UserReviews />} />
+              <Route path="/feedback/submit" element={<FeedbackSystem />} />
+              <Route path="/login" element={<Login />} /> {/* New */}
+              <Route path="/register" element={<Register />} /> {/* New */}
+              <Route path="/password-recovery" element={<PasswordRecovery />} /> {/* New */}
+            </Routes>
+          ) : (
+            <p>Loading...</p>
+          )}
           <FlightChart data={flightData} /> {/* New */}
           <TrendingDestinations /> {/* New */}
         </main>
@@ -79,3 +101,4 @@ function App() {
 }
 
 export default App;
+
