@@ -1,3 +1,5 @@
+// paymentController.js
+
 const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 const paypal = require('paypal-rest-sdk');
 const axios = require('axios');
@@ -116,4 +118,3 @@ exports.processMpesaPayment = async (req, res) => {
 };
 
 module.exports = { processStripePayment, processPaypalPayment, processMpesaPayment };
-
