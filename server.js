@@ -20,15 +20,13 @@ dotenv.config();
 
 const app = express();
 
-// Apply CORS middleware using imported corsOptions
-  app.use(cors({
-  origin: 'https://easy-travel-frontend.netlify.app' 
-}));
+// Apply CORS middleware
+app.use(cors(corsOptions));  // Ensure `corsOptions` is correctly defined in './config/corsOptions'
 
-// Connect Database
+// Connect to Database
 connectDB();
 
-// Middleware
+// Middleware to parse JSON requests
 app.use(express.json());
 
 // Define Routes
@@ -52,5 +50,3 @@ const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
   console.log(`Server started on port ${PORT}`);
 });
-
-
