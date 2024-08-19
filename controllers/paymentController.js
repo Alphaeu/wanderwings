@@ -13,7 +13,7 @@ paypal.configure({
 });
 
 // Stripe Payment Processing
-exports.processStripePayment = async (req, res) => {
+const processStripePayment = async (req, res) => {
   const { amount, currency, source, description } = req.body;
 
   try {
@@ -32,7 +32,7 @@ exports.processStripePayment = async (req, res) => {
 };
 
 // PayPal Payment Processing
-exports.processPaypalPayment = async (req, res) => {
+const processPaypalPayment = async (req, res) => {
   const { amount, currency } = req.body;
 
   const create_payment_json = {
@@ -77,7 +77,7 @@ const generateMpesaToken = async () => {
 };
 
 // Mpesa Payment Processing
-exports.processMpesaPayment = async (req, res) => {
+const processMpesaPayment = async (req, res) => {
   const { amount, phoneNumber } = req.body;
   const { MPESA_SHORTCODE, MPESA_PASSKEY } = process.env;
 
@@ -117,4 +117,5 @@ exports.processMpesaPayment = async (req, res) => {
   }
 };
 
+// Export the payment processing functions
 module.exports = { processStripePayment, processPaypalPayment, processMpesaPayment };
