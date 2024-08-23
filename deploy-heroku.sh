@@ -4,7 +4,7 @@
 heroku login
 
 # Set the app name with a unique identifier based on the current timestamp
-APP_NAME="wanderwings-$(date +%s)"
+APP_NAME="wanderwings-global-$(date +%s)"
 
 # Create a new Heroku app with the unique name
 heroku create $APP_NAME
