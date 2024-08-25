@@ -18,6 +18,8 @@ const { corsOptions } = require('./config/corsOptions');
 
 dotenv.config();
 
+console.log('MONGO_URI:', process.env.MONGO_URI); // Add this line for debugging
+
 const app = express();
 
 // Apply CORS middleware
@@ -50,3 +52,5 @@ const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
   console.log(`Server started on port ${PORT}`);
 });
+
+

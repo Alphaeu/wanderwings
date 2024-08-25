@@ -1,3 +1,4 @@
+// ../controllers/bookingController.js
 const Booking = require('../models/Booking');
 const Flight = require('../models/Flight');
 
@@ -20,10 +21,24 @@ exports.createBooking = async (req, res) => {
   }
 };
 
-// Get bookings by user
-exports.getBookingsByUser = async (req, res) => {
+// Get a booking by its ID
+exports.getBookingById = async (req, res) => {
   try {
-    const bookings = await Booking.find({ userId: req.user.id }).populate('flightId');
+    const booking = await Booking.findById(req.params.id).populate('flightId');
+    if (!booking) {
+      return res.status(404).json({ msg: 'Booking not found' });
+    }
+    res.json(booking);
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).send('Server Error');
+  }
+};
+
+// Get all bookings for a specific user
+exports.getUserBookings = async (req, res) => {
+  try {
+    const bookings = await Booking.find({ userId: req.params.userId }).populate('flightId');
     res.json(bookings);
   } catch (err) {
     console.error(err.message);
@@ -31,11 +46,20 @@ exports.getBookingsByUser = async (req, res) => {
   }
 };
 
-// Get all bookings
-exports.getAllBookings = async (req, res) => {
+// Update an existing booking
+exports.updateBooking = async (req, res) => {
   try {
-    const bookings = await Booking.find().populate('flightId');
-    res.json(bookings);
+    const { seatNumber } = req.body;
+
+    const booking = await Booking.findById(req.params.id);
+    if (!booking) {
+      return res.status(404).json({ msg: 'Booking not found' });
+    }
+
+    booking.seatNumber = seatNumber || booking.seatNumber;
+    await booking.save();
+
+    res.json(booking);
   } catch (err) {
     console.error(err.message);
     res.status(500).send('Server Error');
