@@ -1,11 +1,11 @@
 const mongoose = require('mongoose');
 
-// Ensure the .env file is loaded
+// To ensure the .env file is loaded
 require('dotenv').config();
 
 const connectDB = async () => {
     try {
-        // Check if MONGO_URI is defined
+        // To check if MONGO_URI is defined
         if (!process.env.MONGO_URI) {
             throw new Error('MONGO_URI environment variable is not set');
         }
