@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="/favicon.ico" />
+  <link rel="manifest" href="/manifest.json" />
+  <title>Wanderwings - Discover the World</title>
+  
+  <!-- Bootstrap CSS for responsive design and additional styling options -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+  <!-- Google Fonts for improved typography -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="/styles.css">
+
+  <!-- External JavaScript libraries -->
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDN6YR6VS85kv6PcQoQl9xQcwrfCQXTVqU" async defer></script>
+
+  <!-- Ensure JavaScript is enabled -->
+  <script>
+    document.documentElement.className = 'js';
+  </script>
+  
+  <!-- React app bundle -->
+  <script defer src="/static/js/bundle.js"></script>
+</head>
+<body>
+  <header id="header" class="bg-primary text-white">
+    <div class="container d-flex justify-content-between align-items-center">
+      <h1 class="logo">Wanderwings</h1>
+      <nav id="main-nav" class="d-flex align-items-center">
+        <a href="/" class="nav-link">Home</a>
+        <a href="/flights" class="nav-link">Search Flights</a>
+        <a href="/flight-status" class="nav-link">Flight Status</a>
+        <a href="/loyalty/frequent-flyer" class="nav-link">Frequent Flyer</a>
+        <a href="/services/baggage-tracking" class="nav-link">Baggage Tracking</a>
+        <a href="/promotions" class="nav-link">Promotions</a>
+        <a href="/services/additional" class="nav-link">Additional Services</a>
+        <div class="dropdown">
+          <button class="btn btn-secondary dropdown-toggle" type="button" id="accountDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Account
+          </button>
+          <div class="dropdown-menu" aria-labelledby="accountDropdown">
+            <a class="dropdown-item" href="/account">Profile</a>
+            <a class="dropdown-item" href="/account/history">Booking History</a>
+            <a class="dropdown-item" href="/account/notifications">Notifications</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="/support/contact">Contact Us</a>
+            <a class="dropdown-item" href="/support/live-chat">Live Chat</a>
+            <a class="dropdown-item" href="/feedback/reviews">Reviews</a>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </header>
+  
+  <main id="root" class="container mt-4">
+    <!-- Main content for each page will be rendered here -->
+  </main>
+
+  <footer id="footer" class="bg-dark text-white py-3 mt-5">
+    <div class="container d-flex justify-content-between align-items-center">
+      <p class="mb-0">&copy; 2024 Wanderwings. All rights reserved.</p>
+      <div class="social-media">
+        <a href="#" class="text-white mr-3">Facebook</a>
+        <a href="#" class="text-white mr-3">Twitter</a>
+        <a href="#" class="text-white">Instagram</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap and dependencies for interactive components -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
