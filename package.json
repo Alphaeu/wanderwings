@@ -1,7 +1,7 @@
 {
   "name": "wanderwings",
   "version": "1.0.0",
-  "description": "Backend for Easy Travel web application",
+  "description": "Backend for wanderwings web application",
   "main": "server.js",
   "scripts": {
     "build": "react-scripts build",
@@ -40,7 +40,7 @@
     "yargs": "^16.2.0"
   },
   "engines": {
-    "node": ">=20.x <=24.x",
-    "npm": ">=10.x <=14.x"
+    "node": "20.x",
+    "npm": "10.x"
   }
 }
