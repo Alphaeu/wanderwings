@@ -1,0 +1,223 @@
+/* Global Styles */
+/* Base Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f9;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+  
+  header {
+    background-color: #282c34;
+    color: white;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  header h1, header h2 {
+    margin: 0;
+  }
+  
+  nav {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 1rem;
+  }
+  
+  nav a {
+    color: white;
+    text-decoration: none;
+    padding: 0.5rem;
+    font-size: 1em;
+  }
+  
+  nav a:hover {
+    background-color: #61dafb;
+    border-radius: 4px;
+  }
+  
+  footer {
+    background-color: #282c34;
+    color: white;
+    text-align: center;
+    padding: 1rem;
+    margin-top: auto;
+    border-top: 1px solid #ccc;
+  }
+  
+  /* Dropdown Styles */
+  .dropdown {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .dropbtn {
+    background-color: #282c34;
+    color: white;
+    padding: 0.5rem;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+  
+  .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
+  
+  .dropdown-content a:hover {
+    background-color: #f1f1f1;
+  }
+  
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+  
+  .dropdown:hover .dropbtn {
+    background-color: #2980B9;
+  }
+  
+  /* Main Content Styles */
+  main {
+    padding: 2em;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  #root {
+    flex: 1;
+  }
+  
+  /* Form Styles */
+  form {
+    background: white;
+    padding: 2em;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 2em;
+  }
+  
+  form input, form select, form button {
+    padding: 0.75em;
+    margin-top: 0.5em;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
+  form button {
+    background: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  
+  form button:hover {
+    background: #0056b3;
+  }
+  
+  form label {
+    font-weight: bold;
+  }
+  
+  /* Component Styles */
+  .flight-result, .profile, .booking-form, .status-form {
+    background: white;
+    padding: 2em;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .flight-result h2, .profile h2, .booking-form h2, .status-form h3 {
+    margin-top: 0;
+  }
+  
+  .flight-result button {
+    background: #28a745;
+    color: white;
+    border: none;
+    padding: 0.5em 1em;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  
+  .flight-result button:hover {
+    background: #218838;
+  }
+  
+  /* Live Chat Styles */
+  .live-chat {
+    background: white;
+    padding: 1em;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    bottom: 80px;
+    right: 20px;
+    width: 300px;
+  }
+  
+  .live-chat .messages {
+    max-height: 200px;
+    overflow-y: auto;
+    margin-bottom: 1em;
+  }
+  
+  .live-chat .message {
+    padding: 0.5em;
+    border-radius: 5px;
+    margin-bottom: 0.5em;
+  }
+  
+  .live-chat .message.me {
+    background: #007bff;
+    color: white;
+    text-align: right;
+  }
+  
+  .live-chat .message.bot {
+    background: #f1f1f1;
+    color: #333;
+    text-align: left;
+  }
+  
+  .live-chat input {
+    width: calc(100% - 2em);
+  }
+  
+  .live-chat button {
+    width: 100%;
+    margin-top: 0.5em;
+    background: #007bff;
+    color: white;
+    border: none;
+    padding: 0.75em;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .live-chat button:hover {
+    background: #0056b3;
+  }
+  

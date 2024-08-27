@@ -4,7 +4,7 @@
 heroku login
 
 # Set the app name with a unique identifier based on the current timestamp
-APP_NAME="wanderwings-global-$(date +%s)"
+APP_NAME="wanderwings-backend-$(date +%s)"
 
 # Create a new Heroku app with the unique name
 heroku create $APP_NAME
@@ -25,7 +25,7 @@ heroku config:set MPESA_PASSKEY=bfb279f9aa9bdbcf158e97dd71a467cd2e0c893059b10f78
 heroku config:set NETLIFY_AUTH_TOKEN=nfp_PgB5vVS3Sn5SShbG6AeySZybCeSzPKaG2fcd
 heroku config:set NETLIFY_SITE_ID=8863406b-e348-45d6-9664-3c54f39dffe6
 heroku config:set REACT_APP_GOOGLE_MAPS_API_KEY=AIzaSyDN6YR6VS85kv6PcQoQl9xQcwrfCQXTVqU
-heroku config:set REACT_APP_API_URL=https://66c5569c68e154b339036fd6--easy-travel-frontend.netlify.app
+heroku config:set REACT_APP_API_URL=https://wanderwings.netlify.app
 
 # Ensure node_modules and .env are not in source control
 echo "node_modules" >> .gitignore
