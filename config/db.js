@@ -1,26 +1,28 @@
 const mongoose = require('mongoose');
-
-// To ensure the .env file is loaded
 require('dotenv').config();
+const chalk = require('chalk'); // Optional for better logging
 
 const connectDB = async () => {
     try {
-        // To check if MONGO_URI is defined
         if (!process.env.MONGO_URI) {
             throw new Error('MONGO_URI environment variable is not set');
         }
 
-        // Connect to MongoDB
-        await mongoose.connect(process.env.MONGO_URI, {
-            useNewUrlParser: true,
-            useUnifiedTopology: true,
-            // useCreateIndex is deprecated in newer versions of mongoose
-            // useFindAndModify is also deprecated, not needed in recent mongoose versions
+        const conn = await mongoose.connect(process.env.MONGO_URI);
+        console.log(chalk.green.bold(`MongoDB Connected: ${conn.connection.host}`));
+
+        // Event listeners for better debugging
+        mongoose.connection.on('error', (err) => {
+            console.error(chalk.red.bold(`MongoDB Connection Error: ${err.message}`));
         });
-        console.log('MongoDB connected...');
+
+        mongoose.connection.on('disconnected', () => {
+            console.warn(chalk.yellow.bold('MongoDB Disconnected.'));
+        });
+
     } catch (error) {
-        console.error(`Error: ${error.message}`);
-        process.exit(1);  // Exit the process with a failure code
+        console.error(chalk.red.bold(`Error: ${error.message}`));
+        process.exit(1);
     }
 };
 
